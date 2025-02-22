@@ -7,7 +7,10 @@ import java.time.LocalDate;
 
 
 @Entity
-@Table(name = "movimientos")
+@Table(name = "movimientos",
+        indexes = { @Index(name = "idx_fecha", columnList = "fecha") // Índice para mejorar consultas por fecha
+}
+)
 public class Movimiento {
 
     @Id

@@ -4,8 +4,13 @@ import jakarta.persistence.GeneratedValue;
 
 import jakarta.persistence.*;
 @Entity
-@Inheritance(strategy = InheritanceType.JOINED) // Estrategia JOINED
-@Table(name = "personas")
+@Inheritance(strategy = InheritanceType.JOINED)
+@Table(name = "personas",
+        indexes = {
+                @Index(name = "idx_persona_identificacion", columnList = "identificacion", unique = true),
+                @Index(name = "idx_persona_nombre", columnList = "nombre"),
+                @Index(name = "idx_persona_telefono", columnList = "telefono")
+        })
 public class Persona {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)

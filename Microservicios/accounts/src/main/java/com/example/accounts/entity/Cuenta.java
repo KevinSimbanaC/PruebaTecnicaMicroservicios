@@ -6,7 +6,12 @@ import java.util.ArrayList;
 import java.util.List;
 
 @Entity
-@Table(name="cuentas")
+@Table(
+        name = "cuentas",
+        indexes = {
+                @Index(name = "idx_numero_cuenta", columnList = "numeroCuenta") // Índice para mejorar consultas por numeroCuenta
+        }
+)
 public class Cuenta {
 
     @Id

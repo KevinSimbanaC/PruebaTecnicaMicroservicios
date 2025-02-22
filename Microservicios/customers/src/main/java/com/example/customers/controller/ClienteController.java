@@ -1,6 +1,5 @@
 package com.example.customers.controller;
 
-import com.example.customers.dto.CustomerDTO;
 import com.example.customers.entity.Cliente;
 import com.example.customers.service.ClienteService;
 import org.springframework.beans.factory.annotation.Autowired;

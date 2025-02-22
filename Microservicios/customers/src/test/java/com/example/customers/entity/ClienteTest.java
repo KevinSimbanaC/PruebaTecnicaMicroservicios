@@ -14,7 +14,7 @@ public class ClienteTest {
         // Probar setters
         cliente.setId(1L);
         cliente.setClienteId("CLI123");
-        cliente.setContraseña("password123");
+        cliente.setContrasenia("password123");
         cliente.setEstado(true);
         cliente.setNombre("Juan Pérez");
         cliente.setGenero("Masculino");
@@ -26,7 +26,7 @@ public class ClienteTest {
         // Probar getters
         assertEquals(1L, cliente.getId());
         assertEquals("CLI123", cliente.getClienteId());
-        assertEquals("password123", cliente.getContraseña());
+        assertEquals("password123", cliente.getContrasenia());
         assertTrue(cliente.getEstado());
         assertEquals("Juan Pérez", cliente.getNombre());
         assertEquals("Masculino", cliente.getGenero());
@@ -39,7 +39,7 @@ public class ClienteTest {
     @Test
     public void testConstructor() {
         // Probar constructor vacío
-        Cliente cliente = new Cliente();
+        Cliente cliente = new Cliente("1","1234566",true);
         assertNotNull(cliente);
     }
 
