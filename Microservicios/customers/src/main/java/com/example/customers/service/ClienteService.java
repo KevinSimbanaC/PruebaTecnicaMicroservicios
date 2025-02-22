@@ -36,7 +36,7 @@ public class ClienteService {
 
         // Aplicar los cambios al cliente existente
         clienteExistente.setNombre(clienteActualizado.getNombre());
-        clienteExistente.setContraseña(clienteActualizado.getContraseña());
+        clienteExistente.setContrasenia(clienteActualizado.getContrasenia());
         clienteExistente.setEstado(clienteActualizado.getEstado());
 
         return clienteRepository.save(clienteExistente);

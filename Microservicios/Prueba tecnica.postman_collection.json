@@ -77,7 +77,7 @@
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "{\r\n    \"nombre\": \"Juan Osorio\",\r\n    \"genero\": \"Masculino\",\r\n    \"edad\": 29,\r\n    \"identificacion\": \"1724549828\",\r\n    \"direccion\": \"13 junio y Equinoccial \",\r\n    \"telefono\": \"098874587\",\r\n    \"clienteId\": \"3\",\r\n    \"contraseña\": \"1245\",\r\n    \"estado\": true\r\n}",
+					"raw": "{\r\n    \"nombre\": \"Juan Osorio\",\r\n    \"genero\": \"Masculino\",\r\n    \"edad\": 29,\r\n    \"identificacion\": \"1724549829\",\r\n    \"direccion\": \"13 junio y Equinoccial \",\r\n    \"telefono\": \"098874587\",\r\n    \"clienteId\": \"3\",\r\n    \"contraseña\": \"1245\",\r\n    \"estado\": true\r\n}",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -109,7 +109,7 @@
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "{\r\n    \"nombre\": \"Test\",\r\n    \"genero\": \"Masculino\",\r\n    \"edad\": 40,\r\n    \"identificacion\": \"1754249828\",\r\n    \"direccion\": \"13 junio y Equinoccial \",\r\n    \"telefono\": \"098874587\",\r\n    \"clienteId\": \"4\",\r\n    \"contraseña\": \"1245\",\r\n    \"estado\": true\r\n}",
+					"raw": "{\r\n    \"nombre\": \"Test\",\r\n    \"genero\": \"Masculino\",\r\n    \"edad\": 40,\r\n    \"identificacion\": \"1754249830\",\r\n    \"direccion\": \"13 junio y Equinoccial \",\r\n    \"telefono\": \"098874587\",\r\n    \"clienteId\": \"4\",\r\n    \"contraseña\": \"1245\",\r\n    \"estado\": true\r\n}",
 					"options": {
 						"raw": {
 							"language": "json"

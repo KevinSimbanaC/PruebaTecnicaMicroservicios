@@ -24,7 +24,7 @@ public class ReporteService {
     private final CuentaRepository cuentaRepository;
     private final MovimientoRepository movimientoRepository;
 
-    private final ConcurrentHashMap<String, CompletableFuture<ClienteDTO>> pendingRequests = new ConcurrentHashMap<>();
+    protected final ConcurrentHashMap<String, CompletableFuture<ClienteDTO>> pendingRequests = new ConcurrentHashMap<>();
 
     public ReporteService(RabbitTemplate rabbitTemplate, CuentaRepository cuentaRepository, MovimientoRepository movimientoRepository) {
         this.rabbitTemplate = rabbitTemplate;
@@ -34,15 +34,8 @@ public class ReporteService {
 
     // Generar el reporte
     public List<ReporteDTO> generarReporte(String clienteId, LocalDate fechaInicio, LocalDate fechaFin) {
-        // Crear un CompletableFuture específico para esta solicitud
-        CompletableFuture<ClienteDTO> future = new CompletableFuture<>();
-        pendingRequests.put(clienteId, future);
 
-        // Publicar solicitud en RabbitMQ
-        rabbitTemplate.convertAndSend("customer.request.queue", clienteId);
-
-        // Esperar la respuesta del cliente
-        ClienteDTO cliente = future.join();  // Bloquea hasta que se reciba la respuesta
+        ClienteDTO cliente = obtenerCliente(clienteId);
 
         // Obtener cuentas asociadas al cliente
         List<Cuenta> cuentas = cuentaRepository.findByClienteId(clienteId);
@@ -88,5 +81,18 @@ public class ReporteService {
                 future.complete(customerDTO);
             }
         }
+    }
+    // Obtener el cliente usando CompletableFuture
+    protected ClienteDTO obtenerCliente(String clienteId) {
+        // Crear un CompletableFuture específico para esta solicitud
+        CompletableFuture<ClienteDTO> future = new CompletableFuture<>();
+
+        pendingRequests.put(clienteId, future);
+
+        // Publicar solicitud en RabbitMQ
+        rabbitTemplate.convertAndSend("customer.request.queue", clienteId);
+
+        // Bloquear hasta que se reciba la respuesta
+        return future.join();
     }
 }

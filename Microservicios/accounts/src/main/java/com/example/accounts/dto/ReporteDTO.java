@@ -3,7 +3,9 @@ package com.example.accounts.dto;
 import com.fasterxml.jackson.annotation.JsonFormat;
 
 import java.time.LocalDate;
-
+/**
+ * DTO PARA PRESENTACION DE DATOS DE REPORTE DE MOVIMIENTOS DE UN CLIENTE
+ */
 public class ReporteDTO {
     @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "dd/M/yyyy")
     private LocalDate fecha;

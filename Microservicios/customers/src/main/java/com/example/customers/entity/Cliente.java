@@ -4,12 +4,16 @@ package com.example.customers.entity;
 import jakarta.persistence.*;
 
 @Entity
-@Table(name = "clientes")
+@Table(name = "clientes",
+        indexes = {
+                @Index(name = "idx_cliente_cliente_id", columnList = "clienteId", unique = true)
+        })
+@PrimaryKeyJoinColumn(name = "id") // Relaciona la clave primaria con la tabla "personas"
 public class Cliente extends Persona{
 
     @Column(unique = true, nullable = false)
     private String clienteId;
-    private String contraseña;
+    private String contrasenia;
     private Boolean estado;
 
     public String getClienteId() {
@@ -20,12 +24,12 @@ public class Cliente extends Persona{
         this.clienteId = clienteId;
     }
 
-    public String getContraseña() {
-        return contraseña;
+    public String getContrasenia() {
+        return contrasenia;
     }
 
-    public void setContraseña(String contraseña) {
-        this.contraseña = contraseña;
+    public void setContrasenia(String contrasenia) {
+        this.contrasenia = contrasenia;
     }
 
     public Boolean getEstado() {
@@ -37,9 +41,9 @@ public class Cliente extends Persona{
     }
 
     public Cliente(){}
-    public Cliente(String clienteId, String contraseña, Boolean estado) {
+    public Cliente(String clienteId, String contrasenia, Boolean estado) {
         this.clienteId = clienteId;
-        this.contraseña = contraseña;
+        this.contrasenia = contrasenia;
         this.estado = estado;
     }
 }
